@@ -29,18 +29,15 @@
 `define INST_MULHU_MASK 32'hfe00707f
 
 // Định nghĩa macro trong bộ CHIA
-//1. div
-`define INST_DIV 32'h2004033
-`define INST_DIV_MASK 32'hfe00707f
+//
+`define INST_DIV        32'h02004033
+`define INST_DIV_MASK   32'hfe00707f
 
-//2. divu
-`define INST_DIVU 32'h2005033
-`define INST_DIVU_MASK 32'hfe00707f
+`define INST_DIVU       32'h02005033
+`define INST_DIVU_MASK  32'hfe00707f
 
-//3. rem
-`define INST_REM 32'h2006033
-`define INST_REM_MASK 32'hfe00707f
+`define INST_REM        32'h02006033
+`define INST_REM_MASK   32'hfe00707f
 
-//4. remu
-`define INST_REMU 32'h2007033
-`define INST_REMU_MASK 32'hfe00707f
+`define INST_REMU       32'h02007033
+`define INST_REMU_MASK  32'hfe00707f
