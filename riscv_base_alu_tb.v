@@ -41,7 +41,7 @@ module riscv_base_alu_tb();
 
         // Kiem tra dich trai: 1 << 1 = 2
         #10;
-        alu_op_i = `ALU_SHIFT_LEFT;
+        alu_op_i = `ALU_SHIFTL;
         alu_a_i = 32'h1;
         alu_b_i = 32'h1;  // Dich trai 1 bit
         #10;
@@ -49,7 +49,7 @@ module riscv_base_alu_tb();
 
         // Kiem tra dich phai so hoc voi so am
         #10;
-        alu_op_i = `ALU_SHIFT_RIGHT_ARITHMETIC;
+        alu_op_i = `ALU_SHIFTR_ARITH;
         alu_a_i = 32'h80000000;  // So am lon nhat -2^31
         alu_b_i = 32'h1;          // Dich phai 1 bit
         #10;
@@ -65,7 +65,7 @@ module riscv_base_alu_tb();
 
         // Kiem tra so sanh so co dau: -1 < 1 = true(1)
         #10;
-        alu_op_i = `ALU_LESS_THAN_UNSIGNED;
+        alu_op_i = `ALU_LESS_THAN_SIGNED;
         alu_a_i = 32'hFFFFFFFF;  // -1 
         alu_b_i = 32'h1;          // 1
         #10;

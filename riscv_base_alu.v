@@ -44,7 +44,7 @@ module riscv_base_alu(
 
         case (alu_op_i)
 
-            `ALU_SHIFT_LEFT:
+            `ALU_SHIFTL:
             begin
                 //        Bit	Dịch bao nhiêu	Ghi chú
                 // alu_b_i[0]	1 bit	        dịch nếu bit 0 = 1
@@ -78,7 +78,7 @@ module riscv_base_alu(
                     result_r = shift_left_8_r;
             end
 
-            `ALU_SHIFT_RIGHT, `ALU_SHIFT_RIGHT_ARITHMETIC: begin
+            `ALU_SHIFTR, `ALU_SHIFTR_ARITH: begin
             // Dịch phải sẽ dính bit dấu
                 //        Bit	Dịch bao nhiêu	Ghi chú
                 // alu_b_i[0]	1 bit	        dịch nếu bit 0 = 1
@@ -86,7 +86,7 @@ module riscv_base_alu(
                 // alu_b_i[2]	4 bit	        dịch nếu bit 2 = 1
                 // alu_b_i[3]	8 bit	        dịch nếu bit 3 = 1
                 // alu_b_i[4]	16 bit	        dịch nếu bit 4 = 1
-                if(alu_a_i[31]==1'b1 && alu_op_i == `ALU_SHIFT_RIGHT_ARITHMETIC)
+                if(alu_a_i[31]==1'b1 && alu_op_i == `ALU_SHIFTR_ARITH)
                     shift_right_fill_r = 16'b1111111111111111;
                 else 
                     shift_right_fill_r = 16'b0000000000000000;
@@ -148,7 +148,7 @@ module riscv_base_alu(
                 result_r =(alu_a_i < alu_b_i) ? 32'h1 : 32'h0;
             end
 
-            `ALU_LESS_THAN_UNSIGNED: begin
+            `ALU_LESS_THAN_SIGNED: begin
                 if(alu_a_i[31] != alu_b_i[31]) 
                     result_r = alu_a_i[31] ? 32'h1 : 32'h0; // a âm, b dương => a < b
                 else 
